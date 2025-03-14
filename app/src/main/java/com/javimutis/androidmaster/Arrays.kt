@@ -9,19 +9,24 @@ fun main() {
     //Tamaños
     val weekDays = arrayOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
 
-    println(weekDays[0])
-    println(weekDays.size)
+//    println(weekDays[0])
+//    println(weekDays.size)
 
     if (weekDays.size >= 8) {
         println(weekDays[7])
     } else {
-        println("El arreglo no tiene 8 elementos")
+        //     println("El arreglo no tiene 8 elementos")
 
     }
     //Bucles para Arrays
     for (position in weekDays.indices) {
-        println(weekDays[position])
+        //     println(weekDays[position])
     }
+    //Si nos interesa la posición y el valor
     for ((position, value) in weekDays.withIndex()) {
+    //    println("La posición $position contiene el valor $value")
+    }
+    for (weekDay in weekDays) {
+     //   println("Ahora es $weekDay")
     }
 }
