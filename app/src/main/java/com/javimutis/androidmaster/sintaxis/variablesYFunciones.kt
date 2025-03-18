@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster
+package com.javimutis.androidmaster.sintaxis
 
 //VARIABLES. Se escriben en camelCase. primera letra minuscula siguiente palabra en Mayuscula
 

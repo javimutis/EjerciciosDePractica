@@ -1,7 +1,7 @@
-package com.javimutis.androidmaster
+package com.javimutis.androidmaster.sintaxis
 
 //Los arreglos son estructuras de datos que permiten almacenar y acceder a una colección de elementos de un mismo tipo.
-// Secuencias de datos.
+// Secuencias de datos. Lo que juega en contra es que se debe saber el tamaño de la secuencia y son fijas.
 
 //Indice 0-6
 // Tamaño 7

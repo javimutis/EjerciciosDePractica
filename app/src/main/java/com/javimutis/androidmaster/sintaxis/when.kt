@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster
+package com.javimutis.androidmaster.sintaxis
 
 fun main() {
     // Llama a la función getSemester con el valor 2 y imprime el resultado
