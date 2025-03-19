@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.ifElse
 
 /**Notificaciones móviles
 Por lo general, el teléfono te proporciona un resumen de las notificaciones.

@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /*Calcular el impuesto sobre la renta
 Crea un programa que calcule el impuesto sobre la renta basado en el ingreso anual:

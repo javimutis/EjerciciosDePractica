@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /*Clasificación de temperaturas
 Las temperaturas pueden variar mucho dependiendo de la estación y la región. Queremos clasificar las temperaturas en distintas categorías.

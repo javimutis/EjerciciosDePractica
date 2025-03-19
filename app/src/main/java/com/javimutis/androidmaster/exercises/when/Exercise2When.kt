@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /**Precio de la entrada de cine
 Las entradas de cine suelen tener un precio diferente según la edad de los espectadores.

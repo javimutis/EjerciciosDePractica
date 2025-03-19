@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /*Ejercicio 1: Clasificación de Productos en una Tienda
 Crea un programa que clasifique productos en una tienda según su precio.

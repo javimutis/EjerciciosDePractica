@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /*Descuentos en una tienda
 Crea un programa que calcule el precio final de un producto después

@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /*Clasificación de películas
 Crea un programa que clasifique películas según su duración:

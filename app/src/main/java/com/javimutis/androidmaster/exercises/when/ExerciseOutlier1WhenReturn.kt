@@ -1,4 +1,4 @@
-package com.javimutis.androidmaster.exercises
+package com.javimutis.androidmaster.exercises.`when`
 
 /* Clasificación de estudiantes
 Crea un programa que clasifique a los estudiantes según su calificación.
