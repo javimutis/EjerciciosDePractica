@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidMaster</string>
+    <string name="men">Hombre</string>
+    <string name="female">Mujer</string>
+    <string name="height">Altura</string>
+    <string name="weight">peso</string>
 </resources>
