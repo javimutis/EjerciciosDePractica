@@ -15,4 +15,9 @@
     <color name="background_button">#EB1555</color>
     <color name="title_text">#FF8D8E98</color>
     <color name="background_fab">#FF6200EE</color>
+
+    <color name="underweight">#FBC02D</color>
+    <color name="normal">#4CAF50</color>
+    <color name="overweight">#E64A19</color>
+    <color name="obesity">#D32F2F</color>
 </resources>
