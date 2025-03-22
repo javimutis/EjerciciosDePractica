@@ -26,6 +26,7 @@
 <!--    TO DO APP-->
     <string name="todo_title">Bienvenidas</string>
     <string name="todo_categories">Categoría</string>
+    <string name="tasks">Tareas</string>
 
 
 </resources>
