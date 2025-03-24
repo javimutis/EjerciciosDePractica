@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.javimutis.androidmaster.R
 import com.javimutis.androidmaster.databinding.ActivitySuperHeroListBinding
 import kotlinx.coroutines.CoroutineScope
@@ -16,9 +18,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SuperHeroListActivity : AppCompatActivity() {
+class SuperheroListActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySuperHeroListBinding
     private lateinit var retrofit: Retrofit
+
+    private lateinit var adapter: SuperheroAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,7 +38,7 @@ class SuperHeroListActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        binding.swSuperHero.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.swSuperhero.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 searchByName(query.orEmpty())
                 return false
@@ -43,20 +47,30 @@ class SuperHeroListActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?) = false
 
         })
+
+        adapter = SuperheroAdapter()
+        binding.rvSuperhero.setHasFixedSize(true)
+        binding.rvSuperhero.layoutManager = LinearLayoutManager(this)
+        binding.rvSuperhero.adapter = adapter
     }
 
     private fun searchByName(query: String) {
+        binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
-            val myResponse: Response<SuperHeroDataResponse> = retrofit.create(ApiService::class.java).getSuperHeroes(query)
-            if(myResponse.isSuccessful) {
-                Log.i("MutisApp", "Funciona")
-                val response: SuperHeroDataResponse? = myResponse.body()
-                if(response != null) {
-                    Log.i("MutisApp", response.toString())
+            val myResponse: Response<SuperheroDataResponse> =
+                retrofit.create(ApiService::class.java).getSuperheroes(query)
+            if (myResponse.isSuccessful) {
+                Log.i("mutisapp", "Funciona")
+                val response: SuperheroDataResponse? = myResponse.body()
+                if (response != null) {
+                    Log.i("mutisapp", response.toString())
+                    runOnUiThread {
+                        adapter.updateList(response.superheroes)
+                        binding.progressBar.isVisible = false
+                    }
                 }
-
-            }else{
-                Log.i("MutisApp", "No funciona")
+            } else {
+                Log.i("mutisapp", "No funciona")
             }
 
         }

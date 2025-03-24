@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.javimutis.androidmaster.firstapp.FirstAppActivity
 import com.javimutis.androidmaster.imccalculator.ImcCalculatorActivity
-import com.javimutis.androidmaster.superheroapp.SuperHeroListActivity
+import com.javimutis.androidmaster.superheroapp.SuperheroListActivity
 import com.javimutis.androidmaster.todoapp.ToDoActivity
 
 class MenuActivity : AppCompatActivity() {
@@ -34,7 +34,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun navigateTobtnSuperHeroApp() {
-        val intent = Intent(this, SuperHeroListActivity::class.java)
+        val intent = Intent(this, SuperheroListActivity::class.java)
         startActivity(intent)
     }
 
