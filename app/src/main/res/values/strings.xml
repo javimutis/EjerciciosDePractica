@@ -33,4 +33,5 @@
     <string name="todo_dialog_category_other">Otros</string>
     <string name="todo_dialog_category_personal">Personal</string>
     <string name="todo_dialog_add_task_button">Crear Tarea</string>
+    <string name="androidMaster">Android Master</string>
 </resources>
