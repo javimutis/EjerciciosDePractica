@@ -23,12 +23,12 @@
     <string name="title_obesity">Obesidad</string>
     <string name="description_obesity">Estás muy por encima de lo ideal para tu peso y altura</string>
 
-<!--    TO DO APP-->
+    <!--    TO DO APP-->
     <string name="todo_title">Bienvenidas</string>
     <string name="todo_categories">Categoría</string>
     <string name="todo_tasks">Tareas</string>
 
-<string name="todo_dialog_add_task">Agregar Tarea</string>
+    <string name="todo_dialog_add_task">Agregar Tarea</string>
     <string name="todo_dialog_category_business">Negocios</string>
     <string name="todo_dialog_category_other">Otros</string>
     <string name="todo_dialog_category_personal">Personal</string>

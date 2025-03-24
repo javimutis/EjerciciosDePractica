@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.javimutis.androidmaster.firstapp.FirstAppActivity
 import com.javimutis.androidmaster.imccalculator.ImcCalculatorActivity
+import com.javimutis.androidmaster.superheroapp.SuperHeroListActivity
 import com.javimutis.androidmaster.todoapp.ToDoActivity
 
 class MenuActivity : AppCompatActivity() {
@@ -27,13 +28,21 @@ class MenuActivity : AppCompatActivity() {
         btnIMCApp.setOnClickListener { navigateToIMCApp() }
         val btnTODOApp = findViewById<Button>(R.id.btnTODOApp)
         btnTODOApp.setOnClickListener { navigateToTODOApp() }
+        val btnSuperHeroApp = findViewById<Button>(R.id.btnSuperHeroApp)
+        btnSuperHeroApp.setOnClickListener { navigateTobtnSuperHeroApp() }
 
     }
 
+    private fun navigateTobtnSuperHeroApp() {
+        val intent = Intent(this, SuperHeroListActivity::class.java)
+        startActivity(intent)
+    }
+
+
     private fun navigateToTODOApp() {
-            val intent = Intent(this, ToDoActivity::class.java)
-            startActivity(intent)
-        }
+        val intent = Intent(this, ToDoActivity::class.java)
+        startActivity(intent)
+    }
 
     private fun navigateToIMCApp() {
         val intent = Intent(this, ImcCalculatorActivity::class.java)
