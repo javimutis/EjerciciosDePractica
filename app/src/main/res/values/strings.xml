@@ -1,4 +1,13 @@
 <resources>
+
+<!--    Menu-->
+    <string name="saludapp">SaludApp</string>
+    <string name="imc_app">IMC APP</string>
+    <string name="to_do_app">TO DO APP</string>
+    <string name="superhero_app">SuperHero App</string>
+    <string name="settings">Settings</string>
+
+<!--    IMC APP-->
     <string name="app_name">AndroidMaster</string>
     <string name="men">Hombre</string>
     <string name="female">Mujer</string>
@@ -40,4 +49,7 @@
     <string name="durability">Durabilidad</string>
     <string name="power">Poder</string>
     <string name="combat">Combate</string>
+
+
+
 </resources>

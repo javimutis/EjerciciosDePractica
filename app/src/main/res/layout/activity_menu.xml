@@ -12,24 +12,30 @@
         android:id="@+id/btnSaludApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SaludApp" />
+        android:text="@string/saludapp" />
 
     <Button
         android:id="@+id/btnIMCApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="IMC APP" />
+        android:text="@string/imc_app" />
 
   <Button
         android:id="@+id/btnTODOApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TO DO APP" />
+        android:text="@string/to_do_app" />
 
   <Button
         android:id="@+id/btnSuperHeroApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SuperHero App" />
+        android:text="@string/superhero_app" />
+
+ <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings" />
 
 </LinearLayout>

@@ -32,8 +32,7 @@ import kotlin.math.roundToInt
 // Esta clase representa la pantalla de detalles de un superhéroe.
 class DetailSuperheroActivity : AppCompatActivity() {
 
-    // Companion object:
-    // Se usa para definir constantes o métodos estáticos que pueden ser usados en toda la clase.
+    // Companion object:Se usa para definir constantes o métodos estáticos que pueden ser usados en toda la clase.
     companion object {
         const val EXTRA_ID = "extra_id" // Clave para recibir el ID del superhéroe desde otra pantalla.
     }

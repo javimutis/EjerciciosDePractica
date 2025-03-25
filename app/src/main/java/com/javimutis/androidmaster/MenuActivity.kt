@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.javimutis.androidmaster.firstapp.FirstAppActivity
 import com.javimutis.androidmaster.imccalculator.ImcCalculatorActivity
+import com.javimutis.androidmaster.settings.SettingsActivity
 import com.javimutis.androidmaster.superheroapp.SuperheroListActivity
 import com.javimutis.androidmaster.todoapp.ToDoActivity
 
@@ -30,6 +31,14 @@ class MenuActivity : AppCompatActivity() {
         btnTODOApp.setOnClickListener { navigateToTODOApp() }
         val btnSuperHeroApp = findViewById<Button>(R.id.btnSuperHeroApp)
         btnSuperHeroApp.setOnClickListener { navigateTobtnSuperHeroApp() }
+        val btnSettings = findViewById<Button>(R.id.btnSettings)
+        btnSettings.setOnClickListener { navigateToSettings() }
+
+    }
+
+    private fun navigateToSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
 
     }
 
