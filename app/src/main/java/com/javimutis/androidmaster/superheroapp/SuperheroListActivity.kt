@@ -1,5 +1,6 @@
 package com.javimutis.androidmaster.superheroapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.javimutis.androidmaster.R
 import com.javimutis.androidmaster.databinding.ActivitySuperHeroListBinding
+import com.javimutis.androidmaster.superheroapp.DetailSuperheroActivity.Companion.EXTRA_ID
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -48,7 +50,7 @@ class SuperheroListActivity : AppCompatActivity() {
 
         })
 
-        adapter = SuperheroAdapter()
+        adapter = SuperheroAdapter{ superheroId -> navigateToDetail(superheroId)}
         binding.rvSuperhero.setHasFixedSize(true)
         binding.rvSuperhero.layoutManager = LinearLayoutManager(this)
         binding.rvSuperhero.adapter = adapter
@@ -83,6 +85,11 @@ class SuperheroListActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+    }
 
+    private fun navigateToDetail(id: String) {
+        val intent = Intent(this, DetailSuperheroActivity::class.java)
+        intent.putExtra(EXTRA_ID, id)
+        startActivity(intent)
     }
 }

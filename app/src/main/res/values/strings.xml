@@ -34,4 +34,10 @@
     <string name="todo_dialog_category_personal">Personal</string>
     <string name="todo_dialog_add_task_button">Crear Tarea</string>
     <string name="androidMaster">Android Master</string>
+    <string name="Intelligence">Inteligencia</string>
+    <string name="strength">Fuerza</string>
+    <string name="speed">Velocidad</string>
+    <string name="durability">Durabilidad</string>
+    <string name="power">Poder</string>
+    <string name="combat">Combate</string>
 </resources>
