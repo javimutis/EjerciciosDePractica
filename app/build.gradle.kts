@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.datastore.preferences.core.jvm)
+    implementation(libs.androidx.datastore.core.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -54,7 +56,10 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-//Picasso
+    //Picasso
     implementation(libs.picasso)
+
+    //DataStore
+    implementation(libs.datastore)
 
 }
