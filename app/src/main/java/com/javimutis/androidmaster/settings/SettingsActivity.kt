@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.datastore.core.DataStore
@@ -17,6 +18,9 @@ import com.javimutis.androidmaster.R
 import com.javimutis.androidmaster.databinding.ActivitySettingsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 
@@ -24,18 +28,21 @@ import kotlinx.coroutines.launch
 // SQLlite para guardar en la base de datos y en este caso se va a usar DataStore para guardar en la base de datos.
 // Lo ideal es que esté en un fichero distinto pero para empezar está bien que esté aquí
 
+//flow: canal para estar escuchando continuamente un valor. avisa de cambios de forma continua, siempre se tiene la ultima información
+
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class SettingsActivity : AppCompatActivity() {
 
     companion object {
         const val VOLUME_LVL = "volume_lvl"
-      const val KEY_BLUETOOTH = "key_bluetooth"
-      const val KEY_VIBRATION = "key_vibration"
-      const val KEY_DARK_MODE = "key_dark_mode"
+        const val KEY_BLUETOOTH = "key_bluetooth"
+        const val KEY_VIBRATION = "key_vibration"
+        const val KEY_DARK_MODE = "key_dark_mode"
     }
 
     private lateinit var binding: ActivitySettingsBinding
+    private var firstTime: Boolean = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +55,20 @@ class SettingsActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            getSettings().filter { firstTime }.collect { settingsModel ->
+                if (settingsModel != null) {
+                    runOnUiThread {
+                        binding.switchVibration.isChecked = settingsModel.vibration
+                        binding.switchDarkMode.isChecked = settingsModel.darkMode
+                        binding.switchBluetooth.isChecked = settingsModel.bluetooth
+                        binding.rsVolume.setValues(settingsModel.volume.toFloat())
+                        firstTime = !firstTime
+                    }
+                }
+
+            }
         }
         initUI()
 
@@ -71,6 +92,13 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
         binding.switchDarkMode.setOnCheckedChangeListener { _, value ->
+
+            if (value){
+                enableDarkMode()
+            }else{
+                disableDarkMode()
+            }
+
             CoroutineScope(Dispatchers.IO).launch {
                 saveOptions(KEY_DARK_MODE, value)
             }
@@ -87,5 +115,27 @@ class SettingsActivity : AppCompatActivity() {
         dataStore.edit { preferences ->
             preferences[booleanPreferencesKey(key)] = value
         }
+    }
+
+    private fun getSettings(): Flow<SettingsModel> {
+        return dataStore.data.map { preferences ->
+            SettingsModel(
+                volume = preferences[intPreferencesKey(VOLUME_LVL)] ?: 50,
+                bluetooth = preferences[booleanPreferencesKey(KEY_BLUETOOTH)] ?: true,
+                vibration = preferences[booleanPreferencesKey(KEY_VIBRATION)] ?: true,
+                darkMode = preferences[booleanPreferencesKey(KEY_DARK_MODE)] ?: false
+            )
+
+        }
+    }
+
+    private fun enableDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        delegate.applyDayNight()
+    }
+
+    private fun disableDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        delegate.applyDayNight()
     }
 }
